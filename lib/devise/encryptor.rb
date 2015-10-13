@@ -3,6 +3,7 @@ require 'bcrypt'
 module Devise
   module Encryptor
     def self.digest(klass, password)
+      logger.info(klass)
       if klass.pepper.present?
         password = "#{password}#{klass.pepper}"
       end
